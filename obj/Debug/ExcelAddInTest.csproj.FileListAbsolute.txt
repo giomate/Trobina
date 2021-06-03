@@ -1,0 +1,13 @@
+C:\Users\GMateusDP\source\repos\ExcelAddInTest\bin\Debug\ExcelAddInTest.dll
+C:\Users\GMateusDP\source\repos\ExcelAddInTest\bin\Debug\ExcelAddInTest.pdb
+C:\Users\GMateusDP\source\repos\ExcelAddInTest\bin\Debug\ExcelAddInTest.dll.manifest
+C:\Users\GMateusDP\source\repos\ExcelAddInTest\bin\Debug\ExcelAddInTest.vsto
+C:\Users\GMateusDP\source\repos\ExcelAddInTest\bin\Debug\Microsoft.Office.Tools.Common.v4.0.Utilities.dll
+C:\Users\GMateusDP\source\repos\ExcelAddInTest\obj\Debug\ExcelAddInTest.Properties.Resources.resources
+C:\Users\GMateusDP\source\repos\ExcelAddInTest\obj\Debug\ExcelAddInTest.csproj.GenerateResource.cache
+C:\Users\GMateusDP\source\repos\ExcelAddInTest\obj\Debug\ExcelAddInTest.csproj.CoreCompileInputs.cache
+C:\Users\GMateusDP\source\repos\ExcelAddInTest\obj\Debug\ExcelAddInTest.csproj.CopyComplete
+C:\Users\GMateusDP\source\repos\ExcelAddInTest\obj\Debug\ExcelAddInTest.dll
+C:\Users\GMateusDP\source\repos\ExcelAddInTest\obj\Debug\ExcelAddInTest.pdb
+C:\Users\GMateusDP\source\repos\ExcelAddInTest\obj\Debug\ExcelAddInTest.Ribbon1.resources
+C:\Users\GMateusDP\source\repos\ExcelAddInTest\obj\Debug\ExcelAddInTest.csprojAssemblyReference.cache
