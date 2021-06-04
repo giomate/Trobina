@@ -17,6 +17,9 @@ namespace ExcelAddInTest
         public  int command { get; set; }
         public SpeechCommand listener;
         private int counter = 1;
+        private String[] previous = {"before","before"};
+        private String[] current = { "current", "current"};
+        private String[] next = { "next", "nechts" };
         public SpeechCommand()
         {
             listener = this;
@@ -35,11 +38,11 @@ namespace ExcelAddInTest
 
          private void LoadGrammarRecognizer()
         {
-            Choices nextChoices = new Choices(new string[] { "next", "nechts"});
+            Choices nextChoices = new Choices(next);
             Grammar nextGrammar =    new Grammar(nextChoices);
-            Choices upChoices = new Choices(new string[] { "upper cell" });
+            Choices upChoices = new Choices(previous);
             Grammar upGrammar = new Grammar(upChoices);
-            Choices currentChoices = new Choices(new string[] { "current cell" });
+            Choices currentChoices = new Choices(current);
             Grammar currentGrammar = new Grammar(currentChoices);
             nextGrammar.Name = "Next";
             recognizer.LoadGrammar(nextGrammar);
@@ -79,23 +82,35 @@ namespace ExcelAddInTest
             {
                 Debug.WriteLine("No recognition result");
             }
-            if (e.Result.Confidence>0.9)
+            if (e.Result.Confidence>0.8)
             {
                 
-                if ((e.Result.Text== "next")| (e.Result.Text == "nechts"))
+                if ((e.Result.Text== next[0])| e.Result.Text == next[1])
                 {
                     command = 2;
                 }
-                else if ((e.Result.Text == "upper cell") )
+                else if ((e.Result.Text == previous[0])| (e.Result.Text == previous[1]))
                 {
                     command = 8;
                 }
-                else if ((e.Result.Text == "current cell") )
+                else if ((e.Result.Text == current[0])| (e.Result.Text == current[1]))
                 {
-                    command = 5;
+                    if (e.Result.Confidence > 0.95)
+                    {
+                        command = 5;
+                    }
+                    else
+                    {
+                        command = 0;
+                    }
+                   
                 }
                 completed=true;
                 SayNumber();
+                if (command==0)
+                {
+                    Thread.Sleep(2000);
+                }
                 
             }
         }

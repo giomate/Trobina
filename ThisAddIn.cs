@@ -17,6 +17,8 @@ namespace ExcelAddInTest
         public Excel.Workbook activeWorkbook;
         private  Excel.Worksheet activeWorksheet;
         private Excel.Range totalRange;
+        private const String start_column = "J";
+        private  String start_cell = String.Concat(start_column,"9");
         
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
@@ -51,12 +53,12 @@ namespace ExcelAddInTest
             catch (Exception)
             {
 
-                throw;
+               // throw;
             }
-            activeWorkbook= this.Application.Workbooks.Open(@"C:\Users\GMateusDP\Documents\SandBox\WindingNumbers.xlsx");
+            activeWorkbook= this.Application.Workbooks.Open(@"D:\Salukat\FilterDesing\Mechanic\Calculations\WindingNumbers.xlsx");
             activeWorksheet = ((Excel.Worksheet)Application.ActiveSheet);
             totalRange = activeWorksheet.UsedRange;
-            Excel.Range range = activeWorksheet.get_Range("G9");
+            Excel.Range range = activeWorksheet.get_Range(start_cell);
             try
             {
                 palabra = range.Value;
@@ -74,7 +76,7 @@ namespace ExcelAddInTest
         {
           activeWorksheet = ((Excel.Worksheet)Application.ActiveSheet);
             totalRange = activeWorksheet.UsedRange;
-            Excel.Range range = activeWorksheet.get_Range("G9");
+            Excel.Range range = activeWorksheet.get_Range(start_cell);
             try
             {
                 palabra = range.Value;
@@ -113,7 +115,7 @@ namespace ExcelAddInTest
             Math.DivRem(i, totalRange.Rows.Count+1, out index);
             try
             {
-                Excel.Range cr = activeWorksheet.get_Range(string.Concat("G", index.ToString()));
+                Excel.Range cr = activeWorksheet.get_Range(string.Concat(start_column, index.ToString()));
                 value = cr.Value;
                 cr.Select();
                 palabra = value.ToString("N0");
